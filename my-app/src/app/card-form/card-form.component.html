@@ -1,0 +1,26 @@
+<form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+  <!--using $any to disable any type checking here-->
+<app-input label="Name" [control]="$any(cardForm).get('name')"></app-input>
+<app-input label="Card Number" [control]="$any(cardForm).get('cardNumber')"></app-input>
+<app-input label="Expiration (MM/YY)" [control]="$any(cardForm).get('expiration')"></app-input>
+<app-input label="Security Code" [control]="$any(cardForm).get('securityCode')"></app-input>
+<button class="button is-primary"
+  [disabled]="cardForm.invalid"
+  type="submit"
+  >Submit
+</button>
+<button
+  class="button is-warning"
+  type="button"
+  (click)="onResetClick()"
+  >
+  Reset
+</button>
+
+</form>
+<hr />
+
+
+<div>Form Contents: {{cardForm.value | json}}</div>
+<div> Form is Valid: {{cardForm.valid}}</div>
+<div>Errors around name: {{cardForm.controls.name.errors| json}}</div>

@@ -1,0 +1,44 @@
+<div>
+  <label class="label">{{ label }}</label>
+  <div class="control">
+    <input
+    class="input"
+    [formControl]="control"
+    [ngClass]="{ 'is-danger': showErrors() }"
+    />
+  </div>
+    <ng-container
+        *ngIf="
+        control.dirty &&
+        control.touched &&
+        control.errors
+        ">
+        <!-- basic example of error handling -->
+      <div
+        class="help is-danger"
+        *ngIf="control.errors?.['required']">
+        Value is required.
+      </div>
+      <div
+        class="help is-danger"
+        *ngIf="control.errors?.['minlength']">
+        Value you entered is
+        {{ control.errors.minlength.actualLength }}
+        characters long, but it must be atleast
+        {{ control.errors.minlength.requiredLength }} characters
+      </div>
+      <div
+        class="help is-danger"
+        *ngIf="control.errors?.['maxLength']">
+        Value you entered is
+        {{ control.errors.maxLength.actualLength }}
+        characters long, but cannot be longer than
+        {{ control.errors.maxLength.requiredLength }}
+      </div>
+      <div
+      class="help is-danger"
+      *ngIf="control.errors?.['pattern']">
+      Invalid Format!
+      </div>
+    </ng-container>
+  </div>
