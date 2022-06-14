@@ -1,0 +1,47 @@
+.columns {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5rem;
+}
+
+.column-1 {
+  flex: 1.5;
+}
+
+.column-2 {
+  flex:1;
+
+}
+
+.buttons {
+  margin-top: 1.5rem;
+}
+
+.primary {
+  color: white;
+  background-color: green;
+  border-radius: 5px;
+  padding: 5px;
+  border-color: green;
+  margin-right: 2rem;
+}
+
+.primary:hover {
+  color:green;
+  background-color: #fff;
+  border-color: white;
+}
+
+.warning {
+  background-color:orange;
+  color: white;
+  border-color: orange;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.warning:hover {
+  color:orange;
+  background-color: #fff;
+  border-color: white;
+}
